@@ -12,11 +12,11 @@
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
-                <h1 class="text-uppercase text-white font-weight-bold">Du gras, oui, mais de qualité!</h1>
+                <h1 class="text-uppercase text-white font-weight-bold" id="main-title">Du gras, oui, mais de qualité!</h1>
                 <hr class="divider my-4" />
             </div>
             <div class="col-lg-8 align-self-baseline">
-                <h2 class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</h2>
+                <h2 class="text-white-75 font-weight-light mb-5" id="punch-line">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</h2>
                 <hr class="divider my-4" />
             </div>
             <div id="div-search-home"    class="col-lg-8 align-self-baseline">
@@ -24,10 +24,10 @@
                     <div class="form-row align-items-center">
                       <div class="col-auto">
                         <label class="sr-only" for="inlineFormInput">Produit</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Produit">
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Produit" id="main-form-input">
                       </div>
                       <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2">Chercher</button>
+                        <button type="submit" class="btn btn-primary mb-2" id="main-form-button">Chercher</button>
                       </div>
                     </div>
                 </form>
@@ -44,12 +44,12 @@
 <section class="page-section bg-primary" id="testify">
     <div id="portfolio" class="bg-primary">
         <div class="container-fluid p-0">
-            <h2 class="text-center text-white mt-0">Colette et Rémy</h2>
+            <h2 class="text-center text-white mt-0" id="testify-title">Colette et Rémy</h2>
             <hr class="divider-light my-4" />
             <div class="row no-gutters" id="div-testify">
                 <div class="col-lg-4 offset-lg-1 col-sm-6">
                     <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg"
-                        ><img class="img-fluid" src="{% static 'dist/assets/img/portfolio/thumbnails/remy-4.jpg' %}" alt="" />
+                        ><img class="img-fluid" src="{% static 'dist/assets/img/portfolio/thumbnails/remy-4.jpg' %}" alt=""  id="pict-remy"/>
                         <div class="portfolio-box-caption">
                             <p class="text-white mb-5">Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !</p>
                         </div></a
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-sm-6">
                     <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg"
-                        ><img class="img-fluid" src="{% static 'dist/assets/img/portfolio/thumbnails/colette-7.jpg' %}" alt="" />
+                        ><img class="img-fluid" src="{% static 'dist/assets/img/portfolio/thumbnails/colette-7.jpg' %}" alt="" id="pict-colette"/>
                         <div class="portfolio-box-caption">
                             <p class="text-white mb-5">Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !</p>
                         </div></a
