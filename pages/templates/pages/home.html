@@ -2,22 +2,16 @@
 {% load static %}
 
 
-{% block title %}
-    Bienvenue chez pure beurre
-{% endblock title %}
-
 <!-- Masthead-->
-{% block header %}
+{% block content %}
 <header class="masthead">
-    <div class="container h-100">
+    <div class="container h-100 mt-4">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end">
                 <h1 class="text-uppercase text-white font-weight-bold" id="main-title">Du gras, oui, mais de qualité!</h1>
-                <hr class="divider my-4" />
             </div>
             <div class="col-lg-8 align-self-baseline">
                 <h2 class="text-white-75 font-weight-light mb-5" id="punch-line">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</h2>
-                <hr class="divider my-4" />
             </div>
             <div id="div-search-home"    class="col-lg-8 align-self-baseline">
                 <form id="search-home">
@@ -36,10 +30,6 @@
         </div>
     </div>
 </header>
-{% endblock header %}
-
-{% block content %}
-
 <!-- Portfolio-->
 <section class="page-section bg-primary" id="testify">
     <div id="portfolio" class="bg-primary">

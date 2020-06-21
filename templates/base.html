@@ -13,7 +13,7 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" /> -->
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
@@ -29,23 +29,15 @@
                 <div class="container">
                     <a class="navbar-brand js-scroll-trigger" href="#" id="brand">
                         <img 
-                            src="{% static 'dist/assets/img/logo/logo_pur_beurre.png' %}" 
+                            src="{% static 'dist/assets/img/logo/logo_pur_beurre.png' %}"  width="30" height="30" class="d-inline-block align-top"
                             alt="Image"
-                            height="44px"
-                            width="50px"
                             id="logo" />
                         Pur beurre</a>
+                    <form class="form-inline">
+                        <label class="sr-only" for="inlineFormInput">Produit</label>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Chercher">
+                    </form>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div id="div-search-home"    class="col-sm-4 offset-sm-5">
-                        <form id="search-navbar" class="navbar-brand js-scroll-trigger">
-                            <div class="form-row align-items-center">
-                              <div class="col-auto">
-                                <label class="sr-only" for="inlineFormInput">Produit</label>
-                                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Chercher">
-                              </div>
-                            </div>
-                        </form>
-                    </div>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto my-2 my-lg-0">
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="profil-link"><i class="fas fa-user-alt"></i></a></li>
@@ -56,18 +48,21 @@
                 </div>
             </nav>
         {% endblock nav %}
-        <!-- Masthead-->
-        {% block header %}
-            
-        {% endblock header %}
+        <!-- Content-->
+        {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} yolo-top">
+                    {{message}}
+                </div>
+                {% endfor%}
 
+            {% endif %}
         {% block content %}
-
         {% endblock content %}
-        
+
         <!-- Footer-->
         {% block footer %}
-            <footer class="bg-light-homemade py-5">
+            <footer class="bg-light-homemade py-2">
                 <div class="container row col-sm-10 offset-sm-1">
                     <div class="col-sm-4 offset-sm-2"><a class="nav-link text-white" href="#" id="legal-link">Mentions légales</a></div>
                     <div class="col-sm-4 offset-sm-2"><a class="nav-link text-white" href="#" id="contacts-link">Contacts</a></div>

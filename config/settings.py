@@ -25,13 +25,15 @@ SECRET_KEY = '#)s#9#f+ntlp9)h0sef$#t*a837(e2i&0%n0cnge*_e$70yjic'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,8 +80,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # on utilise l'adaptateur postgresql
+        'NAME': 'pure', # le nom de notre base de donnees creee precedemment
+        'USER': 'dick', # attention : remplacez par votre nom d'utilisateur
+        'PASSWORD': 'rivers',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -125,3 +131,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 INTERNAL_IPS = ['127.0.0.1']
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+FILTERS_DISABLE_HELP_TEXT = True
+
+#LOGIN_REDIRECT_URL = 'home'
