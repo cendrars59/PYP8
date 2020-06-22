@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main role="main" class="yolo-top content-height container main">
+    <div class="row" id="truc" >
+        <div class="col-sm-10 offset-sm-1">
+            <h2>Déconnexion</h2>
+            <div class="border-top pt3">
+                <small class="text-muter">
+                    Vous connectez <a class="ml-2"   href="{% url 'login' %}">Connecter</a>
+                </small>
+        
+            </div>
+
+        </div>
+        
+    </div>
+
+</main>
+
+{% endblock content %}
