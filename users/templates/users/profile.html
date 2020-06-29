@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<header class="masthead" style="background-image:None ;">
+    <div class="row header-div-top" style="background-image:{{user.profile.image.url}} ;" >
+        <div class="col-sm-4 offset-sm-4 pt-5 align-items-center justify-content-center text-center color-primary">
+            <h2>Ahoy</h2>
+            <h2>{{user.username}}</h2>
+        </div> 
+    </div>
+    <div class="clear"></div>
+    <div class="row">
+        <div class="col-sm-4 offset-sm-4 pt-5 align-items-center justify-content-center text-center color-primary">
+            <p>{{user.email}}</p>
+        </div> 
+    </div>
+</header>
+
+{% endblock content %}

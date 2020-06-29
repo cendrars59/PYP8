@@ -33,7 +33,7 @@
                             alt="Image"
                             id="logo" />
                         Pur beurre</a>
-                    <form class="form-inline">
+                    <form class="form-inline" style="margin-left:10vw;">
                         <label class="sr-only" for="inlineFormInput">Produit</label>
                         <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Chercher">
                     </form>
@@ -41,7 +41,7 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto my-2 my-lg-0">
                             {% if user.is_authenticated %}
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="profil-link"><i class="fas fa-user-alt"></i></a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profile' %}" id="profile-link"><i class="fas fa-user-alt"></i></a></li>
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="selections-link"><i class="fas fa-carrot"></i></a></li>
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}" id="selections-login"><i class="fas fa-sign-out-alt"></i></a></li>
                             {% else %}
@@ -60,7 +60,7 @@
                 </div>
                 {% endfor%}
 
-            {% endif %}
+        {% endif %}
         {% block content %}
         {% endblock content %}
 

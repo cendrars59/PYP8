@@ -25,7 +25,7 @@ SECRET_KEY = '#)s#9#f+ntlp9)h0sef$#t*a837(e2i&0%n0cnge*_e$70yjic'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]']
 
 
 # Application definition
@@ -86,7 +86,11 @@ DATABASES = {
         'PASSWORD': 'rivers',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+        'TEST': {
+            'NAME': 'jojo',
+        },
+    },
+
 }
 
 
@@ -112,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -130,10 +134,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 INTERNAL_IPS = ['127.0.0.1']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 FILTERS_DISABLE_HELP_TEXT = True
 
-#LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'pages-home'
+
+LOGIN_URL = 'login'
