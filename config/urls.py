@@ -21,6 +21,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from users import views as users_view
 from pages import views as pages_view
+from catlog import views as catlog_view
 from users.forms import UserLoginForm
 
 urlpatterns = [
@@ -28,7 +29,8 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('register/', users_view.register, name='register'),
     path('profile/', users_view.profile, name='profile'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html',authentication_form=UserLoginForm), name='login'),
+    path('catalogue/', include('catlog.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html', authentication_form=UserLoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

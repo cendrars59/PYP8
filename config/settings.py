@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]']
 # Application definition
 
 INSTALLED_APPS = [
+    'catlog.apps.CatlogConfig',
     'pages.apps.PagesConfig',
     'users.apps.UsersConfig',
     'crispy_forms',

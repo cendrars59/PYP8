@@ -12,7 +12,6 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 
 class TestHomePage(StaticLiveServerTestCase):
 
-    
     def setUp(self):
         self.browser = webdriver.Chrome(executable_path='/mnt/c/webdrivers/chromedriver.exe')
 
