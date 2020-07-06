@@ -29,7 +29,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('register/', users_view.register, name='register'),
     path('profile/', users_view.profile, name='profile'),
-    path('catalogue/', include('catlog.urls')),
+    path('catalogue/', include('catlog.urls', namespace='catlog')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html', authentication_form=UserLoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

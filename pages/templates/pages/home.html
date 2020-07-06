@@ -14,11 +14,11 @@
                 <h2 class="text-white-75 font-weight-light mb-5" id="punch-line">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</h2>
             </div>
             <div id="div-search-home"    class="col-lg-8 align-self-baseline">
-                <form id="search-home">
+                <form id="search-home" action="{% url 'catlog:catalogue' %}"  method="get" accept-charset="utf-8">
                     <div class="form-row align-items-center">
                       <div class="col-auto">
                         <label class="sr-only" for="inlineFormInput">Produit</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Produit" id="main-form-input">
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Produit" id="main-form-input" name="query">
                       </div>
                       <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-2" id="main-form-button">Chercher</button>
