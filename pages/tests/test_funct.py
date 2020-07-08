@@ -1,7 +1,8 @@
-from selenium import webdriver
+import time
+
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
-import time
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
@@ -11,10 +12,10 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 
 
 class TestHomePage(StaticLiveServerTestCase):
-
     def setUp(self):
-        self.browser = webdriver.Chrome(executable_path='/mnt/c/webdrivers/chromedriver.exe')
-
+        self.browser = webdriver.Chrome(
+            executable_path='/mnt/c/webdrivers/chromedriver.exe'
+        )
 
     def tearDown(self):
         self.browser.close()
@@ -25,7 +26,11 @@ class TestHomePage(StaticLiveServerTestCase):
         # user opens the page and sees header section
         logo = self.browser.find_element_by_id("logo")
         source = logo.get_attribute("src")
-        self.assertEquals(source, self.live_server_url+'/static/dist/assets/img/logo/logo_pur_beurre.png')
+        self.assertEquals(
+            source,
+            self.live_server_url
+            + '/static/dist/assets/img/logo/logo_pur_beurre.png',
+        )
 
     def test_verify_brand_value(self):
         self.browser.get(self.live_server_url)

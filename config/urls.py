@@ -1,4 +1,4 @@
-"""config URL Configuration
+"""config URL Configuration.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -17,11 +17,10 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
 from django.contrib.auth import views as auth_views
+from django.urls import path
+
 from users import views as users_view
-from pages import views as pages_view
-from catlog import views as catlog_view
 from users.forms import UserLoginForm
 
 urlpatterns = [
@@ -29,14 +28,25 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('register/', users_view.register, name='register'),
     path('profile/', users_view.profile, name='profile'),
-    path('user_search/', users_view.listing , name='user_search'),
+    path('user_search/', users_view.listing, name='user_search'),
     path('catalogue/', include('catlog.urls', namespace='catlog')),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html', authentication_form=UserLoginForm), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path(
+        'login/',
+        auth_views.LoginView.as_view(
+            template_name='users/login.html', authentication_form=UserLoginForm
+        ),
+        name='login',
+    ),
+    path(
+        'logout/',
+        auth_views.LogoutView.as_view(template_name='users/logout.html'),
+        name='logout',
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns

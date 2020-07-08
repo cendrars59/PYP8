@@ -7,14 +7,21 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
             name='Brand',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('code', models.CharField(max_length=254, unique=True)),
                 ('name', models.CharField(max_length=1024)),
                 ('url', models.URLField()),
@@ -25,7 +32,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('code', models.CharField(max_length=254, unique=True)),
                 ('name', models.CharField(max_length=1024)),
                 ('url', models.URLField()),
@@ -36,7 +51,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Store',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('code', models.CharField(max_length=254, unique=True)),
                 ('name', models.CharField(max_length=1024)),
                 ('url', models.URLField()),
@@ -47,20 +70,51 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('code', models.CharField(max_length=254, unique=True)),
                 ('name', models.CharField(max_length=1024)),
                 ('nutrition_grade_fr', models.CharField(max_length=254)),
                 ('quantity', models.CharField(max_length=254)),
-                ('ingredients_text', models.TextField(default='no descripton')),
-                ('ingredients_text_with_allergens_fr', models.TextField(default='no descripton')),
+                (
+                    'ingredients_text',
+                    models.TextField(default='no descripton'),
+                ),
+                (
+                    'ingredients_text_with_allergens_fr',
+                    models.TextField(default='no descripton'),
+                ),
                 ('url', models.URLField()),
                 ('url_images', models.URLField()),
                 ('active', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('brands', models.ManyToManyField(blank=True, related_name='products', to='catlog.Brand')),
-                ('categories', models.ManyToManyField(blank=True, related_name='products', to='catlog.Category')),
-                ('stores', models.ManyToManyField(blank=True, related_name='products', to='catlog.Store')),
+                (
+                    'brands',
+                    models.ManyToManyField(
+                        blank=True, related_name='products', to='catlog.Brand'
+                    ),
+                ),
+                (
+                    'categories',
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name='products',
+                        to='catlog.Category',
+                    ),
+                ),
+                (
+                    'stores',
+                    models.ManyToManyField(
+                        blank=True, related_name='products', to='catlog.Store'
+                    ),
+                ),
             ],
         ),
     ]

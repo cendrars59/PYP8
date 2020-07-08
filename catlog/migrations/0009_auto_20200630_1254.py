@@ -21,8 +21,6 @@ class Migration(migrations.Migration):
             field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='quantity',
-            field=models.TextField(),
+            model_name='product', name='quantity', field=models.TextField(),
         ),
     ]

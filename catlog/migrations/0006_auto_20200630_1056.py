@@ -16,9 +16,7 @@ class Migration(migrations.Migration):
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='brand',
-            name='name',
-            field=models.TextField(),
+            model_name='brand', name='name', field=models.TextField(),
         ),
         migrations.AlterField(
             model_name='category',
@@ -26,9 +24,7 @@ class Migration(migrations.Migration):
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='name',
-            field=models.TextField(),
+            model_name='category', name='name', field=models.TextField(),
         ),
         migrations.AlterField(
             model_name='product',
@@ -36,9 +32,7 @@ class Migration(migrations.Migration):
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='name',
-            field=models.TextField(),
+            model_name='product', name='name', field=models.TextField(),
         ),
         migrations.AlterField(
             model_name='store',
@@ -46,8 +40,6 @@ class Migration(migrations.Migration):
             field=models.TextField(unique=True),
         ),
         migrations.AlterField(
-            model_name='store',
-            name='name',
-            field=models.TextField(),
+            model_name='store', name='name', field=models.TextField(),
         ),
     ]

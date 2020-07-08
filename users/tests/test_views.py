@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
 
 
@@ -14,7 +14,7 @@ class TestViewsLogin(TestCase):
         self.assertTemplateUsed(response, 'users/login.html')
 
 
-class TestViewsRegister(TestCase):   
+class TestViewsRegister(TestCase):
     def test_register_status(self):
         client = Client()
         response = client.get(reverse('register'))
@@ -26,7 +26,7 @@ class TestViewsRegister(TestCase):
         self.assertTemplateUsed(response, 'users/register.html')
 
 
-class TestViewsLogOut(TestCase):    
+class TestViewsLogOut(TestCase):
     def test_logout_status(self):
         client = Client()
         response = client.get(reverse('logout'))

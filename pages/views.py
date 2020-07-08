@@ -7,5 +7,3 @@ def home(request):
 
 def mentions(request):
     return render(request, 'pages/mentions.html')
-
-

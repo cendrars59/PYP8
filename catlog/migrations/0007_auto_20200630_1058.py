@@ -11,28 +11,18 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='brand',
-            name='url',
-            field=models.TextField(),
+            model_name='brand', name='url', field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='url',
-            field=models.TextField(),
+            model_name='category', name='url', field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='url',
-            field=models.TextField(),
+            model_name='product', name='url', field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='url_images',
-            field=models.TextField(),
+            model_name='product', name='url_images', field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='store',
-            name='url',
-            field=models.TextField(),
+            model_name='store', name='url', field=models.TextField(),
         ),
     ]

@@ -11,18 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='brand',
-            name='active',
-            field=models.BooleanField(),
+            model_name='brand', name='active', field=models.BooleanField(),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='active',
-            field=models.BooleanField(),
+            model_name='category', name='active', field=models.BooleanField(),
         ),
         migrations.AlterField(
-            model_name='store',
-            name='active',
-            field=models.BooleanField(),
+            model_name='store', name='active', field=models.BooleanField(),
         ),
     ]

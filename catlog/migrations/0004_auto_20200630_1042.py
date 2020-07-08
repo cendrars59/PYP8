@@ -10,20 +10,8 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='brand',
-            name='created_at',
-        ),
-        migrations.RemoveField(
-            model_name='category',
-            name='created_at',
-        ),
-        migrations.RemoveField(
-            model_name='product',
-            name='created_at',
-        ),
-        migrations.RemoveField(
-            model_name='store',
-            name='created_at',
-        ),
+        migrations.RemoveField(model_name='brand', name='created_at',),
+        migrations.RemoveField(model_name='category', name='created_at',),
+        migrations.RemoveField(model_name='product', name='created_at',),
+        migrations.RemoveField(model_name='store', name='created_at',),
     ]
