@@ -14,7 +14,7 @@ class Profile(models.Model):
     
 
 class UserProductsSearch(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     mainProduct = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='mainProduct')
     subProduct = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='subProduct')
     

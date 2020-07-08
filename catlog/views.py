@@ -67,7 +67,10 @@ def search(request):
         return render(request, 'catlog/search.html', context)
 
     elif request.method == 'POST':
-        subproductid = request.POST.get('subproductid') 
-        userid = request.POST.get('userid')
-        productid = request.POST.get('productid')
+        subproduct = Product.objects.get(id=int(request.POST.get('subproductid'))) 
+        user = User.objects.get(id=int(request.POST.get('userid')))
+        product = Product.objects.get(id=int(request.POST.get('productid'))) 
+        if len(UserProductsSearch.objects.filter(user=user,  mainProduct=product,  subProduct=subproduct)) == 0:
+            print("Toto")
+            UserProductsSearch.objects.create(user=user,  mainProduct=product,  subProduct=subproduct)
         return redirect(request.POST.get('next'))
