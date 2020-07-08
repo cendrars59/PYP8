@@ -17,4 +17,15 @@ class UserProductsSearch(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     mainProduct = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='mainProduct')
     subProduct = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='subProduct')
+
+    @classmethod
+    def get_products(cls, request):
+        user_search = cls.objects.filter(user=request.user).only('subProduct').values()
+        productids = set()
+        for search in user_search:
+            productids.add(search['subProduct_id'])
+        products = []
+        for di in productids:
+            products.append(Product.objects.get(id=di))
+        return products
     

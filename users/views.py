@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import UserRegisterForm
+from catlog.models import Product
+from .models import User, UserProductsSearch
 
 
 def register(request):
@@ -21,3 +24,25 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
+
+
+def listing(request):
+    context = {}
+
+    products = UserProductsSearch.get_products(request)
+
+    paginator = Paginator(products, 6)
+    # Get current page number
+    page = request.GET.get('page')
+    try:
+        # Return only this page albums and not others
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        products = paginator.page(paginator.num_pages)
+    
+    context['products'] = UserProductsSearch.get_products(request)
+    return render(request, 'users/user_search.html', context)

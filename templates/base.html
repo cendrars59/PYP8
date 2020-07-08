@@ -42,7 +42,7 @@
                         <ul class="navbar-nav ml-auto my-2 my-lg-0">
                             {% if user.is_authenticated %}
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profile' %}" id="profile-link"><i class="fas fa-user-alt"></i></a></li>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="selections-link"><i class="fas fa-carrot"></i></a></li>
+                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'user_search' %}" id="selections-link"><i class="fas fa-carrot"></i></a></li>
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}" id="selections-login"><i class="fas fa-sign-out-alt"></i></a></li>
                             {% else %}
                                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}" id="selections-login"><i class="fas fa-sign-in-alt"></i></a></li>
