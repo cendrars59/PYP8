@@ -1,6 +1,8 @@
 from django.db import models
 
 
+
+
 NUTRITION_GRADES = ['a', 'b', 'c', 'd', 'e']
 
 
@@ -58,3 +60,5 @@ class Product(models.Model):
             if NUTRITION_GRADES.index(product.nutrition_grade_fr) <= NUTRITION_GRADES.index(self.nutrition_grade_fr):
                 products.append(product)
         return products
+
+
