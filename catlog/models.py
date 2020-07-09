@@ -5,13 +5,13 @@ NUTRITION_GRADES = ['a', 'b', 'c', 'd', 'e']
 
 # Create your models here.
 class Category(models.Model):
-    """[summary]
+    """Class managing any element regarding category object
 
     Args:
         models ([type]): [description]
 
     Returns:
-        [type]: [description]
+        Category: Return an object of type Category
     """
     code = models.TextField(unique=True)
     name = models.TextField()
@@ -19,17 +19,22 @@ class Category(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
+        """ Return the name of category instead of technical description
+
+        Returns:
+            String: Name of the category
+        """
         return self.name
 
 
 class Store(models.Model):
-    """[summary]
+    """Class managing any element regarding store object
 
     Args:
         models ([type]): [description]
 
     Returns:
-        [type]: [description]
+        Store: Return an object of type Store
     """
     code = models.TextField(unique=True)
     name = models.TextField()
@@ -37,18 +42,22 @@ class Store(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        """sumary_line"""
+        """ Return the name of brand instead of technical description
+
+        Returns:
+            String: Name of the store
+        """
         return self.name
 
 
 class Brand(models.Model):
-    """[summary]
+    """Class managing any element regarding brand object
 
     Args:
         models ([type]): [description]
 
     Returns:
-        [type]: [description]
+        Brand: Return an object of type Brand
     """
     code = models.TextField(unique=True)
     name = models.TextField()
@@ -56,17 +65,22 @@ class Brand(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
+        """ Return the name of brand instead of technical description
+
+        Returns:
+            String: Name of the brand
+        """
         return self.name
 
 
 class Product(models.Model):
-    """[summary]
+    """[Class managing any element regarding product object]
 
     Args:
         models ([type]): [description]
 
     Returns:
-        [type]: [description]
+        [Product]: [Return an object of type Product]
     """
     code = models.TextField(unique=True)
     name = models.TextField()
@@ -86,13 +100,20 @@ class Product(models.Model):
     brands = models.ManyToManyField(Brand, related_name='products', blank=True)
 
     def __str__(self):
+        """ Return the name of product instead of technical description
+
+        Returns:
+            String: Name of the product
+        """
         return self.name
 
     def get_recommanded_products(self):
-        """[summary]
+        """Get the list of recommanded products according the nutrition grade
+        of the current product. Only products having same grade or better are
+        part of the results
 
         Returns:
-            [type]: [description]
+            List: List of products
         """
         products = []
         for product in Product.objects.filter(

@@ -7,14 +7,15 @@ from .models import Product
 
 
 def detail(request, product_id):
-    """[summary]
+    """Accordingv the requesting, getting the information for
+    a given product.
 
     Args:
-        request ([type]): [description]
-        product_id ([type]): [description]
+        request (request): Incoming request
+        product_id (integer): technical id of the product
 
     Returns:
-        [type]: [description]
+        view: return the view according the product info
     """
     product = Product.objects.get(pk=product_id)
     context = {
@@ -31,13 +32,22 @@ def detail(request, product_id):
 
 
 def search(request):
-    """[summary]
+    """ If the request is type Get
+    According the user request retrieve the product.
+    if no match : User is notified that there is no results
+    if more than one match : User is notified that the user has to refine
+    his or her request.
+    if one match : Get the product and then get the list of recommanded
+    products associated with.
+
+    If the request is type Post
+    Saving the selected product
 
     Args:
-        request ([type]): [description]
+        request (request): [description]
 
     Returns:
-        [type]: [description]
+        [type]: Return the context to display.
     """
 
     if request.method == 'GET':
@@ -62,12 +72,14 @@ def search(request):
             context['title'] = "Pas de résultat pour %s" % query
             context['products'] = products
             return render(request, 'catlog/search.html', context)
-
+        # In this case user has to refine his or her request
         if len(Product.objects.filter(name__icontains=query)) > 1:
             products = []
             context['title'] = (
                 "Trop de résultats pour %s. Affinez votre recherche" % query
             )
+        # In returning the found product and recommanded products associated
+        #  with
         elif len(Product.objects.filter(name__icontains=query)) == 1:
             temp_list = Product.objects.filter(name__icontains=query)
             product = Product.objects.get(pk=temp_list[0].id)
@@ -92,7 +104,7 @@ def search(request):
         context['products'] = products
 
         return render(request, 'catlog/search.html', context)
-
+    # saving the product
     elif request.method == 'POST':
         subproduct = Product.objects.get(
             id=int(request.POST.get('subproductid'))
