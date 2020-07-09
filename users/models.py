@@ -14,6 +14,7 @@ class Profile(models.Model):
     Returns:
         [type]: [description]
     """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profiles_pics')
 
@@ -35,6 +36,7 @@ class UserProductsSearch(models.Model):
     Returns:
         [type]: [description]
     """
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='user'
     )

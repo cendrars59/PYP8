@@ -13,6 +13,7 @@ class Category(models.Model):
     Returns:
         Category: Return an object of type Category
     """
+
     code = models.TextField(unique=True)
     name = models.TextField()
     url = models.TextField()
@@ -36,6 +37,7 @@ class Store(models.Model):
     Returns:
         Store: Return an object of type Store
     """
+
     code = models.TextField(unique=True)
     name = models.TextField()
     url = models.TextField()
@@ -59,6 +61,7 @@ class Brand(models.Model):
     Returns:
         Brand: Return an object of type Brand
     """
+
     code = models.TextField(unique=True)
     name = models.TextField()
     url = models.TextField()
@@ -82,6 +85,7 @@ class Product(models.Model):
     Returns:
         [Product]: [Return an object of type Product]
     """
+
     code = models.TextField(unique=True)
     name = models.TextField()
     nutrition_grade_fr = models.TextField()
