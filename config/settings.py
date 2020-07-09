@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,8 +26,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'xbeo19t-i%].r;%Ss\n1XvVY:')
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
 else:
     DEBUG = True
 
@@ -136,6 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+SATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -150,3 +150,6 @@ FILTERS_DISABLE_HELP_TEXT = True
 LOGIN_REDIRECT_URL = 'pages-home'
 
 LOGIN_URL = 'login'
+
+
+django_heroku.settings(locals())
