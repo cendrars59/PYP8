@@ -132,4 +132,4 @@ dmypy.json
 .vscode/ 
 
 
-static/node_modules
+/static/node_modules
